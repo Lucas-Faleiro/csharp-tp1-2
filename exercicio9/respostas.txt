@@ -1,0 +1,25 @@
+1. Qual a função da pasta Pages?
+
+Pages é onde armazena as páginas da aplicação, cada página é formada por um arquivo .cshtml e um cshtml.cs.
+Ela também define qual vai ser as URLs do site, o caminho dos arquivos dentro da pasta vira a rota dentro da aplicação, index sendo a raiz, porém Sobre.cshtml vira /Sobre
+
+2. O que faz o arquivo Program.cs?
+
+É onde a aplicação é criada, configurada, constroi a pipeline de requisição e começa o servidor web.
+
+-Webapplication.CreateBuilder cria o builder
+-builder.Service.AddRazorPages() registra os serviços necessários
+-builder.Build() cria a aplicação
+-Acontece as configurações de roteamentos, autorização etc.
+-Para finalizar ele executa o servidor
+
+3. Onde são configurados os serviços da aplicação?
+
+No Program.cs na parte de builder.Service.
+Caso necessário adicionar mais serviços, é necessário utilizar o builder.Service
+
+4. Como é feito o roteamento de URLs?
+
+O roteamento é dentro pasta Pages, onde a URL é de acordo com a localização dos arquivos cshtml.
+É habilitado pelo app.useRouting().
+Um exemplo seria se existe uma pasta produtos e dentro dessa pasta Produtos existe uma arquivo Lista.cshtml, a URL vira /Produtos/Lista
