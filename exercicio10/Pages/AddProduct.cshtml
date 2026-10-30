@@ -1,0 +1,43 @@
+@page
+@model exercicio10.Pages.AddProductModel
+@{
+    ViewData["Title"] = "Adicionar Produto";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post" class="mb-4">
+        <div class="mb-3">
+            <label asp-for="NovoProduto.Nome" class="form-label">Nome</label>
+            <input type="text" asp-for="NovoProduto.Nome" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label asp-for="NovoProduto.Preco" class="form-label">Preço</label>
+            <input type="text" asp-for="NovoProduto.Preco" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    @if (AddProductModel.ProdutosCadastrados.Any())
+    {
+        <h2>Produtos Cadastrados</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in AddProductModel.ProdutosCadastrados)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Preco</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

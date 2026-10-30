@@ -1,0 +1,24 @@
+﻿@page
+@model exercicio12.Pages.CadastroEventosModel
+@{
+    ViewData["Title"] = "Cadastro de Eventos";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <form method="post" class="mb-4">
+        <div class="mb-3">
+            <label asp-for="NovoEvento.titulo" class="form-label"></label>
+            <input type="text" asp-for="NovoEvento.titulo" class="form-control" required/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NovoEvento.data" class="form-label"></label>
+            <input type="date" asp-for="NovoEvento.data" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label asp-for="NovoEvento.local" class="form-label"></label>
+            <input type="text" asp-for="NovoEvento.local" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
